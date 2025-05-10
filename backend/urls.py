@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from authentication.views import AuthTokenView, RegisterView, LoginView, CallTokenView
+from authentication.views import AuthTokenView, CallQueryView, GuestUserView, RegisterView, LoginView, CallTokenView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -25,5 +25,7 @@ urlpatterns = [
     path('api-token-path/', AuthTokenView.as_view()),
     path('register/', RegisterView.as_view()),
     path('login/', LoginView.as_view()),
-    path('call-token/', CallTokenView.as_view())
+    path('call-token/', CallTokenView.as_view()),
+    path("guest-token/", GuestUserView.as_view()),
+    path("calls/", CallQueryView.as_view()),
 ]
